@@ -1,7 +1,6 @@
-
-/* C implementation QuickSort */
 #include<stdio.h> 
 #include <stdlib.h>
+#include <time.h>
 #define len 1024
   
 // A utility function to swap two elements 
@@ -70,14 +69,25 @@ int main()
 
     int arr[len];
 
+    //Colocando um seed baseado no tempo, assim pelo menos muda, 
+    //mas, provavel que numa execucao dos 3 algoritmos fique tudo igual
+    srand( time(NULL)); 
+
     for ( i = 0; i < len; i++)
     {
-        arr[i]= rand() % 1024 + 1;
+        arr[i]= rand() % (2*len) + 1; //2xLEN soh para ter umamaior variacao de numeros
     }
-
     
-    quickSort(arr, 0, len-1); 
-    printf("Sorted array: "); 
+	//Para vermos o array desorganizado, soh descomentar
+	/*
+	printf("\n-------------------Array nao organizado--------------------\n\n");  
+	printArray(arr, len); 
+	*/
+
+    quickSort(arr, 0, len-1);
+    
+	printf("\n--------------Array organizado por QUICK-SORT--------------\n\n"); 
+
     printArray(arr, len); 
 
     return 0; 
