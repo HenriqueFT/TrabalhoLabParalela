@@ -2,6 +2,7 @@
 #include<stdlib.h> 
 #include <time.h>
 #define len 1024
+#define showResult 1
 
 // Merges two subarrays of arr[]. 
 // First subarray is arr[l..m] 
@@ -111,7 +112,12 @@ int main()
 
 	mergeSort(arr, 0, len - 1); 
 
-	printf("\n--------------Array organizado por MERGE-SORT--------------\n\n"); 
-	printArray(arr, len); 
+	
+		printf("\n--------------Array organizado por MERGE-SORT--------------\n\n"); 
+
+	if(showResult){
+		printArray(arr, len); 
+	}
+
 	return 0; 
 } 
