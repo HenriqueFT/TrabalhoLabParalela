@@ -18,10 +18,8 @@ void merge(int arr[], int l, int m, int r)
 	int n1 = m - l + 1; 
 	int n2 = r - m; 
 
-	/* create temp arrays */
 	int L[n1], R[n2]; 
 
-	/* Copy data to temp arrays L[] and R[] */
 	for (i = 0; i < n1; i++) 
 		L[i] = arr[l + i]; 
 	for (j = 0; j < n2; j++) 
@@ -65,9 +63,7 @@ void merge(int arr[], int l, int m, int r)
 	} 
 } 
 
-
-/* l is for left index and r is right index of the 
-sub-array of arr to be sorted */
+//Esquerda e direitado subarray a ser ordenado
 void mergeSort(int arr[], int l, int r) 
 { 
 	if (l < r) 
@@ -84,8 +80,7 @@ void mergeSort(int arr[], int l, int r)
 	} 
 } 
 
-/* UTILITY FUNCTIONS */
-/* Function to print an array */
+//Funcao para printar um array
 void printArray(int A[], int size) 
 { 
 	int i; 
@@ -94,37 +89,8 @@ void printArray(int A[], int size)
 	printf("\n"); 
 } 
 
-
-int * partialMergeSort(int meu_rank,int* arr1,int* arr2,int semiL,int* target,int l, int r){
-    int fullL = semiL*2;
-    int i;
-    int k=0;
-    for (i = 0; i < semiL; i++)
-    {
-        target[k]=arr1[i];
-        k++;
-    }
-    //k vai estar no valor de semiL que eh o inicio do seguinte.
-    for (i = 0; i < semiL; i++)
-    {
-        target[k]=arr2[i];
-        k++;
-    }
-    
-    if(verbose){
-        printf("\n-----specialMerge atual (%d)-------\n\n",meu_rank);
-        printArray(target,fullL);
-    }
-
-    mergeSort(target,l,r);
-
-    return target;
-}
-
-/* Driver program to test above functions */
 int main(int argc,char** argv) 
 { 
-
     int meu_rank,np,tag=0;
 	int from,to=0;
 	MPI_Status status;
@@ -175,8 +141,6 @@ int main(int argc,char** argv)
 
 	mergeSort(subArr, 0, (subLen-1)); 
 
-    
-    
     int *arrSorted = (int*) malloc (len*sizeof(int));
 
     MPI_Gather(subArr,

@@ -212,6 +212,7 @@ int main(int argc,char** argv)
     Processo 2 : 5 6
     Processo 3 : 4 7
     */
+   
     if(verbose){
         printf("\n------Sou o processo %d , e este eh meu SubArray :  \n\n",meu_rank);
         printArray(subArr, subLen);
@@ -330,7 +331,6 @@ int main(int argc,char** argv)
     
     free(subArr);
     free(arr);
-
     MPI_Barrier(MPI_COMM_WORLD);
 
 	MPI_Finalize();
