@@ -1,8 +1,9 @@
-#include <iostream>                                                                              
+                                                                            
 #include <omp.h>           
-#include "pch.h"
-#include "stdio.h"
+#include<stdlib.h> 
+#include<stdio.h>
 #include <time.h>
+#define printter 0
 
 void swapAscendente(int index1, int index2, int *vetor)                                           //swap two values such that they appear in ascending order in the array
 {
@@ -146,30 +147,33 @@ int main()                                                                      
 
 	double time_spent5 = (double)end - begin / CLOCKS_PER_SEC;
 	
-	for (int i = 0; i < 1024; i++)
-	{
-		printf("|%d|", vetor[i]);
+	if(printter){
+		for (int i = 0; i < 1024; i++)
+		{
+			printf("|%d|", vetor[i]);
+		}
 	}
+
 
 	char a[10];
 	printf("\n");
 	printf("TIME SPENT 1");
-	printf("\n %f", time_spent1);
+	printf("\n %f", time_spent1/CLOCKS_PER_SEC);
 
 	printf("\n TIME SPENT 2");
-	printf(" \n %f", time_spent2);
+	printf(" \n %f", time_spent2/CLOCKS_PER_SEC);
 
 	printf("\n TIME SPENT 3");
-	printf("\n %f", time_spent3);
+	printf("\n %f", time_spent3/CLOCKS_PER_SEC);
 
 	printf("\n TIME SPENT 4");
-	printf("\n %f", time_spent4);
+	printf("\n %f", time_spent4/CLOCKS_PER_SEC);
 
 	printf("\n TIME SPENT 5");
-	printf("\n %f", time_spent5);
+	printf("\n %f", time_spent5/CLOCKS_PER_SEC);
 
 	printf("\n AVERAGE");
-	printf("\n %f", (time_spent1 + time_spent2 + time_spent3 + time_spent4 + time_spent5) / 5);
-	scanf_s("%s", a);
+	printf("\n %f", (time_spent1 + time_spent2 + time_spent3 + time_spent4 + time_spent5) / (CLOCKS_PER_SEC*5) );
+
 
 }

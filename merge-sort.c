@@ -1,8 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h> 
 #include <time.h>
-#define len 1024
-#define showResult 1
+#define len 1000000
+#define showResult 0
 
 // Merges two subarrays of arr[]. 
 // First subarray is arr[l..m] 

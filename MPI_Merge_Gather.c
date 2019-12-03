@@ -4,7 +4,7 @@
 #include "mpi.h"
 #define len 1024
 #define verbose 0
-#define showResult 1
+#define showResult 0
 
 //Para a  explicacao  do codigo pense que nosso array desarrumado eh
 // 3 1 8 2 5 6 4 7  
@@ -174,3 +174,6 @@ int main(int argc,char** argv)
 
 	return 0; 
 } 
+
+
+
